@@ -5,6 +5,7 @@ import json
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError, CollectionInvalid
 import datetime as dt
+import time
 
 # Define the MongoDB database and table
 db_cilent = MongoClient()
@@ -72,8 +73,7 @@ def scrape_meta(days=1):
 
 # Get all the links, visit the page and scrape the content
 def get_articles(table):
-    links = table.find({},{'web_url': 1})
-
+    links = table.find({'content_txt':{'$exists': False}},{'web_url':1})
     counter = 0
     for uid_link in links:
         counter += 1
@@ -82,22 +82,31 @@ def get_articles(table):
             print uid
         uid = uid_link['_id']
         link = uid_link['web_url']
-        html = requests.get(link).text
-        soup = bs4.BeautifulSoup(html, 'html.parser')
+        try:
+            html = requests.get(link).text
+            soup = bs4.BeautifulSoup(html, 'html.parser')
 
-        article_content = [i.text for i in soup.select('.story-body-text.story-content')]
-        # if not article_content:
-        #     article_content = '\n'.join([i.text for i in soup.select('.caption-text')])
-        # if not article_content:
-        #     article_content = '\n'.join([i.text for i in soup.select('[itemprop="description"]')])
-        # if not article_content:
-        #     article_content = '\n'.join([i.text for i in soup.select('#nytDesignBody')])
-        # else:
-        #     article_content = ''
+            article_content = [i.text for i in soup.select('.story-body-text.story-content')]
+            if not article_content:
+                article_content += [i.text for i in soup.select('.caption-text')]
+            if not article_content:
+                article_content += [i.text for i in soup.select('[itemprop="description"]')]
+            if not article_content:
+                article_content += [i.text for i in soup.select('#nytDesignBody')]
+            else:
+                article_content += []
 
-        table.update({'_id': uid}, {'$set': {'raw_html': html}})
-        table.update({'_id': uid}, {'$set': {'content_txt': article_content}})
+
+            #table.update({'_id': uid}, {'$set': {'raw_html': html}})
+            table.update({'_id': uid}, {'$set': {'content_txt': article_content}})
+        except:
+            print 'disconnected'
+            table.update({'_id': uid}, {'$set': {'content_txt': ['disconnected!']}})
 
 if __name__ == '__main__':
-    scrape_meta(365)
-    get_articles(table)
+    #scrape_meta(1)
+     get_articles(table)
+
+
+
+
