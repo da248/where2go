@@ -50,7 +50,7 @@ def scrape_meta(days=1):
     # The basic parameters for the NYT API
     # Url for NYT dev api
     link = 'http://api.nytimes.com/svc/search/v2/articlesearch.json'
-    payload = {'api-key': '15504a1ea80590cff1e8aceed018cd55:10:72330163','fq': 'section_name:("World" "Travel" "Science")'}
+    payload = {'api-key': '15504a1ea80590cff1e8aceed018cd55:10:72330163','fq': 'section_name:("Travel" "World" "Science")'}
 
     today = dt.datetime(2015, 6, 16)
     for day in range(days):
@@ -72,8 +72,12 @@ def scrape_meta(days=1):
         loop_through_pages(total_pages, link, payload, table)
 
 # Get all the links, visit the page and scrape the content
-def get_articles(table):
-    links = table.find({'content_txt':{'$exists': False}},{'web_url':1})
+def get_articles(table, section = None):
+    if not section:
+        links = table.find({'content_txt':{'$exists': False}},{'web_url':1})
+    else:
+        links = table.find({'$and': [{'content_txt':{'$exists': False}}, {'section_name': section}]},{'web_url':1})
+    
     counter = 0
     for uid_link in links:
         counter += 1
@@ -99,14 +103,40 @@ def get_articles(table):
 
             #table.update({'_id': uid}, {'$set': {'raw_html': html}})
             table.update({'_id': uid}, {'$set': {'content_txt': article_content}})
-        except:
-            print 'disconnected'
+        except ConnectionError as e:
+            print e
             table.update({'_id': uid}, {'$set': {'content_txt': ['disconnected!']}})
 
-if __name__ == '__main__':
-    #scrape_meta(1)
-     get_articles(table)
 
+def get_article_from_mongo(table, num_articles = -1, section = ""):
+
+    #if num_articles not specified, use all articles with content
+    if num_articles == -1:
+        if section == "":
+            num = table.find({'content_txt':{'$exists': True}}).count()
+        else: 
+            num = table.find({'$and': [{'content_txt':{'$exists': True}}, {'section_name': section}]}).count()
+    else: 
+        num = num_articles
+
+    if section == "":
+        articles = table.find({'content_txt':{'$exists': True}},{'section_name':1, 'content_txt':1}).limit(num)
+    else:
+        articles = table.find({'$and': [{'content_txt':{'$exists': True}}, {'section_name': section}]},{'section_name':1, 'content_txt':1}).limit(num)
+    
+    nyt_articles = []
+
+    for uid_article in articles:
+        body = uid_article['content_txt']
+
+        nyt_articles.append(body)
+
+    return nyt_articles
+
+
+if __name__ == '__main__':
+    #scrape_meta(365)
+    get_articles(table)
 
 
 
