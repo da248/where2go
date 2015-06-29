@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href = "/static/img/icon.png" />
+   
+    <title>where2go</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.css' rel='stylesheet' />
+
+    <script src="static/js/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">where2go.help</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#tutorial">Tutorial</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Search</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Results</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">word2vec to...</div>
+                <div class="intro-heading">find out where2go</div>
+                <a href="#about" class="page-scroll btn btn-xl"> Learn More</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About</h2>
+                    <h3 class="section-subheading text-muted">Having trouble finding out where to travel next? Have some places that you really liked and some places/characterics you want to avoid? Use where2go to add them up! <br/> <br/>This project was designed and built alone with bootstrap in two weeks as a capstone project for Galvanize DSI program. The purpose of this project was not only to showcase the usage of a cool machine learning algorithm but also the ability to handle data as well as the caliber to design and build data science products.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="static/img/wikivoyagelogo.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Data</h4>
+                                    <h4 class="subheading">Wikivoyage</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Wikivoyage provides open sourced travel guides that provide information on history and cultures of places as well as tips on how to get around and what to do. Entire articles except specific restaurants and hotels were used.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="static/img/googleicon.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Model</h4>
+                                    <h4 class="subheading">word2vec</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">where2go is built with a natural language processing model called word2vec, which was developed at Google. It utilizes eiher continuous bag of words or continuous skip-grams with a neural network to learn and vecorize words. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="static/img/galvanizelogo4.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Capstone Data Science Project</h4>
+                                    <h4 class="subheading">For Galvanize Data Science Immersive Program <br/> (f.k.a Zipfian Academy)</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">This project was designed and build individually as a 2 week capstone project. It has been a very fun experience and with more time, I would like to...<br/> <br/> 1. Add more data (Lonelyplanet & TripAdvisor?) <br/> 2. Add historical weather data <br/> 3. Add average hotel/flight costs </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="static/img/wynn-profile-picture.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Creator</h4>
+                                    <h4 class="subheading">Wynn Ahn</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">I have background in Chemical Engineering and Management Science and Engineering. I formally worked at a top retail company to optimize supply chain processes but became too mesmerized with the power of data. I decided to redirect my path towards data science and Galvanize was the first step towards this goal. Please check out my linkedin page for more information and reach out to me with data science opportunities!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>
+                                    <br/>
+                                    Enjoy!
+                                </h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Tutorial Section -->
+    <section id="tutorial" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Tutorial</h2>
+                    <h3 class="section-subheading">
+                        You can add/subtract places and words and multiply places by a number if you want to strength/lower its influence. Where2go is likely to recommend a place at the same description level as the inputs. This means that when a city is searched, it is more likely to return a city name than a country name. It will work best when you input...</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                        <div class="team-member">
+                            <h4>Individual country/cities</h4>
+                            <p class="text-muted">Spain <br/> Beijing <br/> Maldives</p>
+                        </div>
+                </div>
+
+                <div class="col-sm-4">
+                        <div class="team-member">
+                            <h4> Adding places of same level description level</h4>
+                            <p class="text-muted">hong kong + singapore <br/> paris + 1.2*milan <br/> 0.8*dubai+cairo</p>
+                        </div>
+                </div>
+                <div class="col-sm-4">
+                        <div class="team-member">
+                            <h4> Adding places + characteristic</h4>
+                            <p class="text-muted">french polynesia + guam + scuba diving <br/> California + wine <br/> rome + beach</p>
+                        </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h3 class="section-heading">Search Tips:</h3>
+                    <div class="team-member">
+                        <h4> Try to put at least one place </h4>
+                        <p class="text-muted"> word2vec searches similar words so it is likely to return places with names related to the search</p>
+
+                    </div>
+                    <div class="team-member">
+                        <h4> Play around with the place multipliers</h4>
+                        <p class="text-muted"> san francisco + 1.5*malaga will yield results more like malaga than san francisco + malaga</p>
+
+                    </div>
+                    <div class="team-member">
+                        <h4> When you want cities like A but in country B</h4>
+                        <p class="text-muted">City A - Country of Place A + Country of Place B. <br/>Again, play around with the weights to see different results. <br/> Example: Barcelona - Spain + 1.5*Italy</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light-gray">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Search</h2>
+                    <h4 class="section-subheading text-muted">Seach for places you like! <br/> Use + or - signs to add subtract destinations/characteristics. </h4>
+                    <br/>
+                </div>
+
+                <div class="container">
+                    <div class="row-md-6" id = "search_bar">
+                        <div class="input-group">
+                            <input class="form-control" id="user_input" type="text" placeholder='Example:   Spain   //   istanbul   //   Beijing + 1.5*beach   //   Havana + Lisbon  //  nice + marseille + valencia - paris'></input>
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" id="submit_btn" onClick="sendToFlask()">Click</button>
+                            </div>
+                        </div>
+
+                        <script>
+                            function sendToFlask() {
+                                data = $('#user_input').val();
+
+                                $.ajax({
+                                    'url': '/map',
+                                    'data': data,
+                                    'type': 'POST',
+                                    'contentType': 'application/json',
+                                    'success': function (data) {
+                                        model_output = JSON.parse(data)
+                                        var center_location = model_output['center_location'];
+                                        var geojson = model_output['top_places'];
+                                        
+                                        //Initialize
+                                        $('#error_msg').remove()
+                                        $('#portfolio').empty()
+
+                                        //if geojson list is empty, display error message.
+                                        if (geojson.length==0) {
+                                            error_message()
+                                        };
+
+                                        var portfolio_header =  '<br/><div class="col-lg-12 text-center"><h3 class="section-heading">Places 2 Go</h2></div>'
+
+                                        $('#portfolio').append(portfolio_header);
+
+
+                                        addtoPortfolio(geojson);
+
+                                        // Clear the map before adding new markers
+                                        mapSimple.removeLayer(myLayer);
+
+                                        // Create new layer
+                                        myLayer = L.mapbox.featureLayer();
+
+                                        // Add custom popups to each using our custom feature properties
+                                        myLayer.on('layeradd', function(e) {
+                                            var marker = e.layer,
+                                                feature = marker.feature;
+
+                                            // Create custom popup content
+                                            var popupContent =  '<a target="_blank" class="popup" href="' + feature.properties.url + '">' + '<div class=crop><img src="' + feature.properties.image + '" height/></div><div class=text-center style="padding:15px 0 0 0"><font size="5">' + feature.properties.title + '</font></div></a>';
+
+                                            // http://leafletjs.com/reference.html#popup
+                                            marker.bindPopup(popupContent,{
+                                                closeButton: true,
+                                                minWidth: 320
+                                            });
+                                        });
+
+
+                                        myLayer.setGeoJSON(geojson).addTo(mapSimple);
+                                        
+                                        mapSimple.fitBounds(myLayer.getBounds());
+                                        // mapSimple.clearLayers();
+                                    },
+                                    'error': function (request, status, error) {
+                                        $('#error_msg').remove()
+                                        error_message();
+                                        console.log('Oh no!! Something went wrong.');
+                                    }
+                                });
+                            };
+
+                            function error_message(dict) {
+                                error_msg = '<div class="alert alert-danger" role="alert" id="error_msg"> Sorry, try again with a different search :( </div>';
+                                $('#search_bar').append(error_msg);
+                            };
+                            function addtoPortfolio(dict) {
+                                for (var key in dict) {
+                                   if (dict.hasOwnProperty(key)) {
+                                      var obj = dict[key];
+                                            var title = obj['properties']['title'];
+                                            var rank = obj['properties']['marker-symbol'];
+                                            var image = obj['properties']['image'];
+                                            var wiki_url = obj['properties']['url'];
+                                            var portfolio_html =  '<div class="portfolio-item"><img src='+image+' class="img-responsive" alt=""><div class="portfolio-caption"><a target="_blank" class="popup" href="' + wiki_url + '"><h4>'+rank+'. '+title+'</h4></div></div>';
+                                            
+                                      $('#portfolio').append(portfolio_html);
+                                      
+                                   }
+                                }
+                            };
+                        </script>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div id='map_simple' class='map'> 
+                <script>
+                L.mapbox.accessToken = 'pk.eyJ1IjoiZGEyNDgiLCJhIjoiYjQ2M2UyOWJhNThmZWY5MGVmZGMzOWRhODQyZmI2ZmMifQ.Ll3gYs9ZLWK5dNW6tG0cpQ';
+                
+                var geojson = [];
+                // {{data['top_places']|safe}};
+                 
+                // map = new L.Map('map', {center: man_center,  minZoom: 12, maxZoom: 16, detectRetina: true});
+                var mapSimple = L.mapbox.map('map_simple', 'da248.a29e1e30', {maxZoom: 6, detectRetina: true}).setView([50, 0], 2);
+                var myLayer = L.mapbox.featureLayer();
+                myLayer.setGeoJSON(geojson).addTo(mapSimple);  
+                mapSimple.scrollWheelZoom.disable();
+                </script>
+            </div>
+
+            <!-- PORTFOLIO SECTION -->
+            <div class="container" id ="portfolio">
+
+            </div>
+    </section>
+
+
+
+    <!-- Clients Aside -->
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Where2Go.help</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://www.linkedin.com/in/dongwonwynnahn"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                        <li><a href="https://www.github.com/da248"><i class="fa fa-github"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="static/js/classie.js"></script>
+    <script src="static/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+
+    <!-- Custom Theme JavaScript -->
+    <script src="static/js/agency.js"></script>
+
+</body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64488526-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</html>
