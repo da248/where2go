@@ -36,7 +36,7 @@ The purpose of this file is to gather the geolocations of articles (places). Wik
 
 3) scrap_wikivoyage_banners.py
 
-This file contains code that I used to scrap the banner images of articles from wikivoyage. I also used this to collect the canonical url of the wikivoyage page. I had to search places using a special search page on Wikivoyage to overcome minor syntex differences in place names. 
+This file contains code that I used to scrap the banner images of articles from wikivoyage. I also used this to collect the canonical url of the wikivoyage page. I had to search places using a special search page on Wikivoyage to overcome minor syntax differences in place names. 
 
 #### New York Times
 4) nyt_articles_api.py
