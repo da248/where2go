@@ -46,13 +46,13 @@ This file was use to gather most recent NYT articles in World, Science, and Trav
 
 ### 2) EDA
 
-Exploratory data analysis and data cleaning have been performed with ipython notebook. Wikivoyage and NYT data were loaded, cleaned, pickled out as input format for word2vec, which is list of sentences where sentences are represented as list of words. Also, global NOAA weather data have been downloaded but it was found with EDA that it left out major parts of the world. Thus, more research has to be done to incorporate the weather data to the project.  
+Exploratory data analysis and data cleaning have been performed with ipython notebook. Wikivoyage and NYT data were loaded, cleaned, pickled out as input format for word2vec, which is list of sentences where sentences are represented as list of words. Also, global NOAA weather data have been downloaded but later have been determined that it leaves out major parts of the world. Thus, more data has to be collected to incorporate the weather to the project.  
 
 ### 3) Model
 
 Where2go is based on a model created at Google called word2vec. Word2vec is a neural network with 1 hidden layer that has continuous bag of words (CBOW) or skip-grams implementation. Where2go uses the version that uses skip-grams and hierarchical softmax for optimization. 
 
-On the high level, word2vec tries to train the neural network to paramatize an model that can predict the surrounding words for every word on the corpus. The predictions are then used to backpropogate and optimize the parameters to make words with similar contexts to be closer together, while being further away from words that have different contexts.
+On the high level, word2vec tries to train the neural network to paramatize a model that can predict the surrounding words for every word on the corpus. The predictions are then used to backpropogate and optimize the parameters to make words with similar contexts to be closer together, while being further away from words that have different contexts.
 The input-hidden layer weighting matrix, which is also the vector representation of words, is then used to gain insight into the meaning/similarity of words. 
 
 In my where2go_model.py file, I implemented gensim's word2vec model and wrote functions to vectorize user search queries and functions to filter the recommendations to actual geolocations and output destinations in geojson format.
@@ -61,7 +61,7 @@ In my where2go_model.py file, I implemented gensim's word2vec model and wrote fu
 I was able to launch my own website using python Flask. I used javascript to perform ajax calls for the search engine so that I could run users' search query on my model to predict the most similar places and show my recommendations on the map. The flask file is named 'app.py' and can be found in the folder 'webapp'; the 'index.html' file that contains the html and javascript can be found in the folder 'templates'. I used Bootstrap to design my website. 
 
 ## Final Remarks
-This project has been very fun and interlectually challenging. I started this application as a capstone project but there are so many things I would like to add to this app. I really want to add more travel guides data to make my results more robust, I would like to add historical weather data to help users decide when to go to a destination, and I would like to add average flight and hotel costs to help user choose plausible places. If you have any comments and recommendations for this project, please feel free to contact me. Also, I am looking for data science jobs! Please contact me with opportunities! You can reach me through my linkedin page, www.linkedin.com/in/dongwonwynnahn 
+This project has been very fun and intellectually challenging. I started this application as a capstone project but there are so many things I would like to add to this app. I really want to add more travel guide data to make my results more robust, add historical weather data to help users decide when to go to a destination, and add average flight and hotel costs to help users choose plausible places. If you have any comments and recommendations for this project, please feel free to contact me. Also, I am looking for data science opportunities! You can reach me through my linkedin page, www.linkedin.com/in/dongwonwynnahn 
 
 
 
