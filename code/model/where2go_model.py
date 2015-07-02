@@ -24,6 +24,9 @@ class Where2Go_Model(object):
         '''
         Load in geotag_imglink_wikiurl, which is a dictionary that
         contains geolocations, img paths, and wikivoyage links.
+
+        input: Boolean
+        output: None (loads class data into class variable)
         '''
 
         with open('../../data/pickles/geo_imglink_wikiurl.pkl', 'rb') as f:
@@ -54,6 +57,7 @@ class Where2Go_Model(object):
     def parse_search_query(self, string):
         '''
         Parse the user query to multipliers and destinations.
+
         input = string
         output = list tuples, where tuple = (number, word)
         '''
@@ -110,6 +114,7 @@ class Where2Go_Model(object):
     def most_similar(self, input, topn=40):
         '''
         use the trained word2vec model to give most similar recommendations to the input
+
         input = search string in the format of place/char + place/char -...
         output = top recommendations in json format
         '''
@@ -140,6 +145,9 @@ class Where2Go_Model(object):
     def make_marker(self):
         '''
         make a maker with default values and random color
+
+        input: None
+        output: geojson marker
         '''
         color = random.choice(self.colors)
         geo_template = {"type": "Feature",
